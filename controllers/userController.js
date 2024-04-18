@@ -86,6 +86,7 @@ export const logout = catchAsyncError(async(req,res,next)=>{
 })
 // =========get USER========
 export const  getUser = catchAsyncError(async(req,res,next)=>{
+    console.log(req.user)
     const user = req.user;
     res.status(200).json({
         success:true,
