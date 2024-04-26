@@ -77,7 +77,8 @@ sendToken(user,200,res,"User Logged In Succesfully")
 export const logout = catchAsyncError(async(req,res,next)=>{
     res.status(201).cookie("token","",{
         // expires:new Date(Date.now()+process.env.COOKIE_EXPIRE *24*60*60*1000)
-        expires: new Date(Date.now())
+        expires: new Date(Date.now()),
+        httpOnly: true, sameSite: "none", secure: true 
     }).json({
         success:true,
         message:"User logged out successfully"
